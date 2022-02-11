@@ -54,7 +54,7 @@ pipeline {
 
                 mail bcc: '',
                         body: 'Hey! Someone just deployed a pod in your kubernetes cluster through jenkins! Kindly checkout whether its an authorized user',
-                        cc: 'swethupaturu@gmail.com',
+                        cc: 'darjiruchit02@gmail',
                         from: '',
                         replyTo: 'noreply@gmail.com',
                         subject: 'Pod Deploy Notification',
