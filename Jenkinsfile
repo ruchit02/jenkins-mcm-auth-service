@@ -66,7 +66,7 @@ pipeline {
 						git add .
 						git commit -m "Initial launch"
 						git remote remove origin
-						git remote add origin https://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@github.com/ruchit02/mcm-app-topnotch.git
+						git remote add origin $MCM_APP_TOPNOTCH_GITHUB_REPO
 						git push -u origin main
 					'''
 				}
