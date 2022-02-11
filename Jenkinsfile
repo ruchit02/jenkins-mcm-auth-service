@@ -41,7 +41,7 @@ pipeline {
 
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-topnotch') {
-                        app.push("latest")
+                        app.push("${env.BUILD_ID}")
                     }
                 }
 
