@@ -48,6 +48,26 @@ pipeline {
                 echo 'Image successfully pushed to dockerhub'
             }
         }
+		
+		stage('Execute shell script') {
+			steps {
+				
+				script {
+					sh '''
+						git clone https://github.com/ruchit02/mcm-app-topnotch.git
+						cd mcm-app-topnotch/
+						git init
+						ID=${env.BUILD_ID}
+						sed -i \'s/image:\ t0pn0tch\/auth-image.*/image:\ t0pn0tch\/auth-image:$ID/\' deployments/auth-deploy.yaml
+						git add .
+						git commit -m "Initial launch"
+						git remote remove origin
+						git remote add origin https://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@github.com/ruchit02/mcm-app-topnotch.git
+						git push -u origin main
+					'''
+				}
+			}
+		}
 
         stage('Send Notification') {
             steps {
