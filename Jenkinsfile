@@ -55,6 +55,7 @@ pipeline {
 				
 				script {
 					sh '''
+						rm -rf mcm-app-topnotch
 						git clone https://github.com/ruchit02/mcm-app-topnotch.git
 						cd mcm-app-topnotch/
 						git init
