@@ -14,6 +14,7 @@ pipeline {
 
                 git branch: 'main', url: 'https://github.com/ruchit02/jenkins-auth-service.git'
                 echo 'Repository has been cloned into the current workspace'
+				echo "HEY CHECK THIS OUT, THIS IS THE BUILD-ID ${env.BUILD_ID}"
             }
         }
 
@@ -57,7 +58,7 @@ pipeline {
 						git clone https://github.com/ruchit02/mcm-app-topnotch.git
 						cd mcm-app-topnotch/
 						git init
-						ID=${env.BUILD_ID}
+						ID="${env.BUILD_ID}"
 						sed -i 's/image: t0pn0tch/auth-image.*/image: t0pn0tch/auth-image:$ID/' deployments/auth-deploy.yaml
 						git add .
 						git commit -m "Initial launch"
