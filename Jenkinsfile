@@ -56,13 +56,13 @@ pipeline {
 				script {
 					sh '''
 						rm -rf mcm-app-topnotch
-						git clone https://github.com/ruchit02/mcm-app-topnotch.git
-						cd mcm-app-topnotch/
+						git clone https://github.com/ruchit02/mcm-topnotch-new.git
+						cd mcm-topnotch-new/
 						git init
 						git config --global user.email "darjiruchit02@gmail.com"
 						git config --global user.name "Ruchit Darji"
 						git branch -M main
-						sed -i "s|image: t0pn0tch/auth-image.*|image: t0pn0tch/auth-image:$BUILD_ID|" deployments/auth-deploy.yaml
+						sed -i "s|image: t0pn0tch/auth-image.*|image: t0pn0tch/auth-image:$BUILD_ID|" everything/auth-deploy.yaml
 						git add .
 						git commit -m "Initial launch"
 						git remote remove origin
